@@ -7,7 +7,7 @@ BOX_DEBIAN_BUSTER = "debian/buster64"
 machines = {
     "auditoria" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "10" },
     "jenkins" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "20" },
-    "gitlab" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "30"  }
+    "gitlab-ce" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "30"  }
 }
 
 Vagrant.configure("2") do |config|
@@ -19,15 +19,20 @@ Vagrant.configure("2") do |config|
      #   jenkins.vm.box = BOX_DEBIAN_BUSTER
      #  jenkins.vm.network "private_network", ip: NETWORK + "20"
     # end 
-    config.vm.box_check_update = false
+    id_rsa_pub = File.read("#{Dir.home}/.ssh/id_rsa.pub")
+    #ansible_pub = File.read("/home/ims/Documents/projetos/vagrantwork/files/ansible.pub")
+
+    #config.vm.box_check_update = false
+   
     machines.each do |name, conf| 
         config.vm.define "#{name}" do |machine|
           machine.vm.box = "#{conf["image"]}"    
           machine.vm.network "private_network", ip: "#{conf["ip"]}"
           machine.vm.hostname = "#{name}.tce.am.gov.br"
+          machine.vm.provision "copy ssh public key", type: "shell", inline: "echo \"#{id_rsa_pub}\" >> /home/vagrant/.ssh/authorized_keys", privileged: true
           machine.vm.provider "virtualbox" do |vb|
                 vb.name = "#{name}"
-                vb.customize ["modifyvm", :id, "--groups", "/525-InfraAgil"]
+                vb.customize ["modifyvm", :id, "--groups", "/Auditoria"]
                 if vb.name == "auditoria" 
                     vb.memory = "2024"
                     vb.cpus = "2"
@@ -37,7 +42,7 @@ Vagrant.configure("2") do |config|
                 end    
           end
           machine.vm.provision "shell", inline: "apt install python -y"
+          machine.vm.provision "shell", inline: "apt update"
         end   
     end
-    config.vm.provision "shell", path: "script.sh"
 end
