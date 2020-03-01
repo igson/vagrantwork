@@ -42,7 +42,8 @@ Vagrant.configure("2") do |config|
                 end    
           end
           machine.vm.provision "shell", inline: "apt install python -y"
-          machine.vm.provision "shell", inline: "apt update"
+          machine.vm.provision "shell", inline: "apt install vim -y"
+          machine.vm.provision "shell", inline: "apt update -y"
         end   
     end
 end

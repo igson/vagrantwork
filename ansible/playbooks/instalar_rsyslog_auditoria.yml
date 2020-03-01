@@ -1,0 +1,9 @@
+- hosts: auditoria
+  become: true
+
+  tasks:
+    - name: instalando o pacote do rsyslog-ng
+      apt:
+        name: syslog-ng
+        state: present
+    
