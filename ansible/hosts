@@ -15,6 +15,7 @@
 #192.168.100.1
 
 auditoria ansible_ssh_host=192.168.100.10 ansible_ssh_port=22 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/ims/Documents/projetos/vagrantwork/.vagrant/machines/auditoria/virtualbox/private_key
+auditoria_slave ansible_ssh_host=192.168.100.11 ansible_ssh_port=22 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/ims/Documents/projetos/vagrantwork/.vagrant/machines/auditoria_slave/virtualbox/private_key
 jenkins ansible_ssh_host=192.168.100.20 ansible_ssh_port=22 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/ims/Documents/projetos/vagrantwork/.vagrant/machines/jenkins/virtualbox/private_key
 gitlab-ce ansible_ssh_host=192.168.100.30 ansible_ssh_port=22 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/ims/Documents/projetos/vagrantwork/.vagrant/machines/gitlab-ce/virtualbox/private_key
 

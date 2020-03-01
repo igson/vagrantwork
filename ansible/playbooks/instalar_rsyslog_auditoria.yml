@@ -1,4 +1,4 @@
-- hosts: auditoria
+- hosts: all
   become: true
 
   tasks:
@@ -6,4 +6,5 @@
       apt:
         name: syslog-ng
         state: present
-    
+      with_items: "{{audit_master}}"
+      when: {{ item.isMaster == true }}

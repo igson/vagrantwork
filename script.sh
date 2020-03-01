@@ -1,5 +1,5 @@
 # Garantindo as chaves
-    KEY_PATH='/files'
+    KEY_PATH='$PWD/files'
     mkdir -p /root/.ssh
     cp $KEY_PATH/key /root/.ssh/id_rsa
     cp $KEY_PATH/key.pub /root/.ssh/id_rsa.pub

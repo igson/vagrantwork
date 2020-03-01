@@ -6,6 +6,7 @@ BOX_DEBIAN_BUSTER = "debian/buster64"
 
 machines = {
     "auditoria" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "10" },
+    "auditoria2" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "11" },
     "jenkins" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "20" },
     "gitlab-ce" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "30"  }
 }
