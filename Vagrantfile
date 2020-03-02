@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 NETWORK = "192.168.100."
-BOX_DEBIAN_BUSTER = "debian/buster64"
+BOX_DEBIAN_BUSTER = "debian/stretch64"
 
 machines = {
     "auditoria" => { "image" => BOX_DEBIAN_BUSTER, "ip" => NETWORK + "10" },
