@@ -1,8 +1,0 @@
----
-    # Realizando a instalação do docker
-    - name:  Configuração de usuário
-      hosts: all
-      become: true 
-      roles:
-       - rsyslog-ng
-    

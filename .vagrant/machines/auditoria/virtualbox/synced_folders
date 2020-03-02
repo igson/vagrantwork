@@ -1,1 +1,1 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/ims/Documents/projetos/VagrantWork","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/ims/Documents/vagrantwork","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
